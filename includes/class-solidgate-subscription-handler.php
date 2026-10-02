@@ -32,34 +32,56 @@ class Solidgate_Subscription_Handler {
             $default_private_key = $this->api->private_key ?? '';
             $test_mode = $this->api->test_mode ?? false;
 
-            if($cross_sell_user == 4){
-                $public_key = 'api_pk_05';
-                $private_key = 'api_sk_307';
+            if( $cross_sell_user == 6 || $cross_sell_user == 7 || $cross_sell_user == 9 || $cross_sell_user == 10 ){
+                $public_key = 'api_pk_c69';
+                $private_key = 'api_sk_193';
                 $user_payment_mode = get_user_meta($user_id, 'user_payment_mode', true);
                 if($user_payment_mode == 'test'){
                     $public_key = 'api_pk_713';
-                    $private_key = 'api_sk_a5b2';
+                    $private_key = 'api_sk_a5';
                     $test_mode = true;
                 }
-            }            
-            if($cross_sell_user == 5){
-                $public_key = 'api_pk_c697';
-                $private_key = 'api_sk_1931';
+            }
+
+            if($cross_sell_user == 4){
+                $public_key = 'api_pk_052';
+                $private_key = 'api_sk_307';
                 $user_payment_mode = get_user_meta($user_id, 'user_payment_mode', true);
                 if($user_payment_mode == 'test'){
-                    $public_key = 'api_pk_7135';
-                    $private_key = 'api_sk_a5b2';
+                    $public_key = 'api_pk_713599b8_1b47_4674_9d4a_c0a217046187';
+                    $private_key = 'api_sk_a5b2efd2_f8f0_419c_8c1d_a0dd26b70e0c';
+                    $test_mode = true;
+                }
+            }        
+            if($cross_sell_user == 5){
+                $public_key = 'api_pk_c69';
+                $private_key = 'api_sk_193';
+                $user_payment_mode = get_user_meta($user_id, 'user_payment_mode', true);
+                if($user_payment_mode == 'test'){
+                    $public_key = 'api_pk_713599b8_1b47_4674_9d4a_c0a217046187';
+                    $private_key = 'api_sk_a5b2efd2_f8f0_419c_8c1d_a0dd26b70e0c';
+                    $test_mode = true;
+                }
+            }
+
+            if($cross_sell_user == 2){
+                $public_key = 'api_pk_e63';
+                $private_key = 'api_sk_51';
+                $user_payment_mode = get_user_meta($user_id, 'user_payment_mode', true);
+                if($user_payment_mode == 'test'){
+                    $public_key = 'api_pk_716e2a6b_bfd2_4a00_bdcd_6d7620408235';
+                    $private_key = 'api_sk_e9e07c11_c2b2_4aa7_991e_441cf67d7e8c';
                     $test_mode = true;
                 }
             }
 
             if($cross_sell_user == 1){
-                $public_key = 'api_pk_c96e2';
-                $private_key = 'api_sk_066';
+                $public_key = 'api_pk_c96';
+                $private_key = 'api_sk_013';
                 $user_payment_mode = get_user_meta($user_id, 'user_payment_mode', true);
                 if($user_payment_mode == 'test'){
-                    $public_key = 'api_pk_7135';
-                    $private_key = 'api_sk_a5b2';
+                    $public_key = 'api_pk_713599b8_1b47_4674_9d4a_c0a217046187';
+                    $private_key = 'api_sk_a5b2efd2_f8f0_419c_8c1d_a0dd26b70e0c';
                     $test_mode = true;
                 }
             } 
@@ -157,12 +179,12 @@ class Solidgate_Subscription_Handler {
                 'force3ds' => false,
                 'customer_email' => $order->get_billing_email(),
                 'ip_address' => $ip_address,
-                // 'ip_address' => '103.36.80.37',
                 'platform' => 'WEB',
                 'order_metadata' => array(
                     'order_url' => get_site_url(),
                     'user_visited_site' => $user_visited_site,
-                    'subscription_ID' => $solid_subId
+                    'subscription_ID' => $solid_subId,
+                    'iqbooster_order_id' => $order->get_id(),
                 )
             );
 

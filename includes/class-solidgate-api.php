@@ -74,12 +74,12 @@ class Solidgate_API {
      */
     public function validate_webhook_signature($json_string) {
         $webhook_public_key = $this->test_mode ? 
-            'wh_pk_46931c3a_' : 
-            'wh_pk_95cb9d17_';
+            'wh_pk_46931c3a_d82a_4d03_8549_6799277e7a19' : 
+            'wh_pk_95cb9d17_935d_4485_ab3e_3daea7307588';
             
         $webhook_private_key = $this->test_mode ? 
-            'wh_sk_b4542336_' : 
-            'wh_sk_01c4d083_';
+            'wh_sk_b4542336_7c7c_4ba2_b57b_6f86d5858e12' : 
+            'wh_sk_01c4d083_4957_4247_b7dd_db70cb445659';
 
         $expected_signature = base64_encode(
             hash_hmac('sha512',

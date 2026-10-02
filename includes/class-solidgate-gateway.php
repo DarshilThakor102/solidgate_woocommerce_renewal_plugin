@@ -10,6 +10,11 @@ class WC_Solidgate_Gateway extends WC_Payment_Gateway {
     private $subscription_handler;
     private $webhook_handler;
     private $sdk_api;
+    public $testmode = '';
+    public $merchant_id = '';
+    public $merchant_secret = '';
+    public $webhook_public_key = '';
+    public $webhook_private_key = '';
 
     public function __construct() {
         $this->id = 'solidgate';
